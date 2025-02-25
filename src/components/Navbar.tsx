@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from 'preact/hooks'
 // warning: this is probably the worst Preact code you'll ever see in your life
 
 function Navbar(props: any) {
-	const root = useRef(document.querySelector(':root')!)
+	const root = document.querySelector(':root')!
 
 	const [collapsed, setCollapsed] = useState(true)
 	const [themeLight, setThemeLight] = useState(false)
 
 	const toggleTheme = () => {
-		root.current.classList.toggle('dark')
+		root.classList.toggle('dark')
+		// root.current.classList.add('')
 
 		localStorage.setItem('theme', !themeLight ? 'light' : 'dark')
 
@@ -43,23 +44,27 @@ function Navbar(props: any) {
 				</a>
 				<div
 					class={
-						'dark:bg-background-900 bg-text-50 time absolute top-full left-0 -z-10 flex w-full flex-col items-center gap-6 pb-6 transition-transform duration-100 md:relative md:top-auto md:z-0 md:translate-0 md:flex-row md:items-end md:pb-0 md:transition-none' +
-						(collapsed ? ' hidden -translate-y-full md:visible' : ' visible')
+						'dark:bg-background-900 bg-text-50 time absolute top-full left-0 -z-10 flex w-full flex-col items-center gap-6 pb-6 md:visible md:relative md:top-auto md:z-0 md:translate-0 md:flex-row md:items-end md:pb-0 md:transition-none' +
+						(collapsed && ' invisible')
 					}
 				>
-					<a href="#about">About me</a>
-					<a href="#contact">Contact</a>
+					<a class="hover:text-accent dark:hover:text-secondary" href="#about">
+						About me
+					</a>
+					<a class="hover:text-accent dark:hover:text-secondary" href="#contact">
+						Contact
+					</a>
 				</div>
 				<div class="grow"></div>
 				<button
-					class="hover:text-primary cursor-pointer self-center text-2xl transition-colors duration-200"
+					class="hover:text-primary cursor-pointer self-center text-2xl"
 					type="button"
 					onClick={toggleTheme}
 				>
 					{themeLight ? props.themeIconOn : props.themeIconOff}
 				</button>
 				<button
-					class="hover:text-primary cursor-pointer self-center text-2xl transition-colors duration-200 md:hidden"
+					class="hover:text-primary cursor-pointer self-center text-2xl md:hidden"
 					type="button"
 					onClick={() => setCollapsed(!collapsed)}
 				>

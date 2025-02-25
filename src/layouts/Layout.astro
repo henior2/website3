@@ -47,9 +47,9 @@ import '../styles/global.css'
 			// }
 		}
 
-		<script>
+		<script is:inline>
 			if (localStorage.getItem('theme') == 'light') {
-				document.querySelector(':root')!.classList.remove('dark')
+				document.querySelector(':root').classList.remove('dark')
 			}
 		</script>
 	</body>
