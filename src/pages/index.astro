@@ -10,14 +10,16 @@ import WiadroImage from '../assets/wiadro.jpg'
 
 <Layout>
 	<Navbar client:only>
-		<Icon name="mdi:weather-night" slot="themeIcon" />
-		<Icon name="mdi:menu" slot="navbarIcon" />
+		<Icon name="mdi:weather-night" slot="themeIconOn" />
+		<Icon name="mdi:white-balance-sunny" slot="themeIconOff" />
+		<Icon name="mdi:menu" slot="navbarIconOn" />
+		<Icon name="mdi:close" slot="navbarIconOff" />
 	</Navbar>
 
-	<main class="custom-responsive m-auto mt-6 scroll-auto px-2">
+	<main class="custom-responsive mx-auto mt-20 scroll-auto px-2">
 		<section class="mb-32 flex flex-col items-center justify-center gap-10 py-8 md:flex-row">
 			<Image class="left-0 h-50 w-50 rounded-full lg:h-75 lg:w-75" src={WiadroImage} alt="wiadro" />
-			<div class="flex w-100 flex-col justify-center gap-2 text-center md:text-left">
+			<div class="custom-w-short flex flex-col justify-center gap-2 text-center md:text-left">
 				<h1 class="font-mono text-6xl font-bold">Hi</h1>
 				<p class="text-xl">
 					I'm <strong>henior</strong>, an aspiring <i class="dark:text-secondary text-accent">(almost)</i> dev
