@@ -1,11 +1,49 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from '../layouts/Layout.astro'
+import Navbar from '../components/Navbar.tsx'
+
+import WiadroImage from '../assets/wiadro.jpg'
 ---
 
 <Layout>
-	<Welcome />
+	<Navbar client:only>
+		<Icon name="mdi:weather-night" slot="themeIcon" />
+		<Icon name="mdi:menu" slot="navbarIcon" />
+	</Navbar>
+
+	<main class="custom-responsive m-auto mt-6 scroll-auto px-2">
+		<section class="mb-32 flex flex-col items-center justify-center gap-10 py-8 md:flex-row">
+			<Image class="left-0 h-50 w-50 rounded-full lg:h-75 lg:w-75" src={WiadroImage} alt="wiadro" />
+			<div class="flex w-100 flex-col justify-center gap-2 text-center md:text-left">
+				<h1 class="font-mono text-6xl font-bold">Hi</h1>
+				<p class="text-xl">
+					I'm <strong>henior</strong>, an aspiring <i class="dark:text-secondary text-accent">(almost)</i> dev
+					doing various things <i class="dark:text-secondary text-accent">(if any)</i>.
+				</p>
+				<a class="text-primary font-bold" href="#contact">Contact</a>
+			</div>
+		</section>
+		<section class="mx-auto mb-20 w-full p-2 lg:w-[80ch]">
+			<h2 id="about" class="mb-2 font-mono text-5xl font-bold">About me</h2>
+			<p class="text-center">
+				<em>Coming soon&trade;</em>
+			</p>
+		</section>
+		<section class="mx-auto w-full p-2 lg:w-[80ch]">
+			<h2 id="contact" class="mb-2 font-mono text-5xl font-bold">Contact</h2>
+			<p>Some ways you can contact or stalk me:</p>
+			<div></div>
+		</section>
+	</main>
+	<footer class="bg-text-100 dark:bg-background-950 mt-4 py-15 text-center">
+		<p>
+			&copy; henior {new Date().getFullYear()}
+		</p>
+		<p class="text-sm">
+			This site is open source on <a class="text-primary" href="https://github.com/henior2/website3">GitHub</a>.
+		</p>
+	</footer>
 </Layout>

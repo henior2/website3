@@ -1,22 +1,57 @@
+---
+import '../styles/global.css'
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="en" class="dark">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>henior</title>
 	</head>
-	<body>
+	<body class="dark:bg-background-900 dark:text-text-50 bg-text-50 text-background-950 font-sans">
 		<slot />
+
+		<script>
+			// document.addEventListener('DOMContentLoaded', () => {
+			// 	const root = document.querySelector(':root')!
+
+			// 	function toggleTheme(updateSaved = false) {
+			// 		root.classList.toggle('dark')
+
+			// 		if (updateSaved) {
+			// 			localStorage.setItem(
+			// 				'theme',
+			// 				root.classList.contains('dark') ? 'dark' : 'light'
+			// 			)
+			// 		}
+			// 	}
+
+			// 	let browserTheme = 'dark'
+			// 	// let browserTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+			// 	// 	? 'dark'
+			// 	// 	: 'light'
+
+			// 	const savedTheme = localStorage.getItem('theme')
+
+			// 	if (!savedTheme) {
+			// 		localStorage.setItem('theme', browserTheme)
+			// 	} else {
+			// 		browserTheme = savedTheme
+			// 	}
+
+			// 	if (browserTheme == 'dark') {
+			// 		toggleTheme()
+			// 	}
+
+			// 	[...document.getElementsByClassName('toggle-theme')].forEach((el) => {
+			// 		el.addEventListener('click', () => {
+			// 			toggleTheme(true)
+			// 		})
+			// 	})
+			// })
+		</script>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
