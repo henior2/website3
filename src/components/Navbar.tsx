@@ -8,48 +8,43 @@ function Navbar(props: any) {
 	const [collapsed, setCollapsed] = useState(true)
 	const [themeLight, setThemeLight] = useState(false)
 
-	const toggleTheme = (updateSaved = false) => {
-		const rootElement = root.current
-		rootElement.classList.toggle('dark')
+	const toggleTheme = () => {
+		root.current.classList.toggle('dark')
 
-		if (updateSaved) {
-			localStorage.setItem('theme', rootElement.classList.contains('dark') ? 'dark' : 'light')
-		}
+		localStorage.setItem('theme', !themeLight ? 'light' : 'dark')
 
 		setThemeLight(!themeLight)
 	}
 
 	useEffect(() => {
+		const savedTheme = localStorage.getItem('theme')
+
 		// dark mode looks better, light mode was added just for accessibility
-		let browserTheme = 'dark'
+		const browserTheme = savedTheme || 'dark'
+
 		// let browserTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
 		// 	? 'dark'
 		// 	: 'light'
 
-		const savedTheme = localStorage.getItem('theme')
-
 		if (!savedTheme) {
 			localStorage.setItem('theme', browserTheme)
-		} else {
-			browserTheme = savedTheme
 		}
 
 		if (browserTheme == 'light') {
-			root.current.classList.remove('dark')
 			setThemeLight(true)
 		}
 	}, [])
 
 	return (
-		<nav class="dark:bg-background-900 bg-text-50 fixed top-0 w-full">
-			<div class="custom-responsive mx-auto flex items-end gap-6 p-4 font-mono text-xl">
+		<nav class="fixed top-0 w-full">
+			<div class="dark:bg-background-900 bg-text-50 custom-responsive mx-auto flex items-end gap-6 p-4 font-mono text-xl">
 				<a class="me-4 text-4xl font-bold" href="/#">
 					henior
 				</a>
 				<div
 					class={
-						'dark:bg-background-900 bg-text-50 absolute top-full left-0 flex w-full flex-col items-center gap-6 pb-6 md:visible md:relative md:translate-0 md:flex-row md:items-end md:pb-0' +
-						(collapsed ? ' invisible' : '')
+						'dark:bg-background-900 bg-text-50 time absolute top-full left-0 -z-10 flex w-full flex-col items-center gap-6 pb-6 transition-transform duration-100 md:relative md:top-auto md:z-0 md:translate-0 md:flex-row md:items-end md:pb-0 md:transition-none' +
+						(collapsed ? ' hidden -translate-y-full md:visible' : ' visible')
 					}
 				>
 					<a href="#about">About me</a>
@@ -59,7 +54,7 @@ function Navbar(props: any) {
 				<button
 					class="hover:text-primary cursor-pointer self-center text-2xl transition-colors duration-200"
 					type="button"
-					onClick={() => toggleTheme(true)}
+					onClick={toggleTheme}
 				>
 					{themeLight ? props.themeIconOn : props.themeIconOff}
 				</button>
