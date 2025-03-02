@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+
+interface Props {
+	href: string
+	icon?: string
+	image?: ImageMetadata
+	title?: string
+}
+
+const { href, icon, image, title }: Props = Astro.props
+
+async function getTitle() {
+	if (title) {
+		return title
+	}
+	if (Astro.slots.has('default')) {
+		return (await Astro.slots.render('default')).toString()
+	}
+	return ''
+}
+---
+
+<a class="hover:text-accent text-center transition-colors duration-100" rel="noreferrer" href={href}>
+	{
+		icon && (
+			<Icon
+				class={'mx-auto mb-2 h-20 w-20 sm:h-30 sm:w-30' + (icon!.startsWith('bi:') ? ' p-2.5' : '')}
+				title={await getTitle()}
+				name={icon}
+			/>
+		)
+	}
+	{image && <Image class={'mx-auto mb-2 h-20 w-20 sm:h-30 sm:w-30 rounded-full'} alt={await getTitle()} src={image} />}
+	<span><slot /></span>
+</a>

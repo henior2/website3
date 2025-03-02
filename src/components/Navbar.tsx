@@ -56,11 +56,7 @@ function Navbar(props: any) {
 					</a>
 				</div>
 				<div class="grow"></div>
-				<button
-					class="hover:text-primary cursor-pointer self-center text-2xl"
-					type="button"
-					onClick={toggleTheme}
-				>
+				<button class="hover:text-primary cursor-pointer self-center text-2xl" type="button" onClick={toggleTheme}>
 					{themeLight ? props.themeIconOn : props.themeIconOff}
 				</button>
 				<button
