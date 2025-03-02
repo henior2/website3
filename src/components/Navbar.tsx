@@ -48,11 +48,14 @@ function Navbar(props: any) {
 						(collapsed && ' invisible')
 					}
 				>
-					<a class="hover:text-accent dark:hover:text-secondary" href="#about">
+					<a class="hover:text-accent dark:hover:text-secondary" href="/#about">
 						About me
 					</a>
-					<a class="hover:text-accent dark:hover:text-secondary" href="#contact">
+					<a class="hover:text-accent dark:hover:text-secondary" href="/#contact">
 						Contact
+					</a>
+					<a class="hover:text-accent dark:hover:text-secondary" href="/#friends">
+						Friends
 					</a>
 				</div>
 				<div class="grow"></div>
