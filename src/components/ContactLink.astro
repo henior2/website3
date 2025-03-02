@@ -22,7 +22,7 @@ async function getTitle() {
 }
 ---
 
-<a class="hover:text-accent group text-center transition duration-100" rel="noreferrer" href={href}>
+<a class="hover:text-accent group transition-color text-center duration-100" rel="noreferrer" href={href}>
 	{
 		icon && (
 			<Icon
@@ -35,7 +35,7 @@ async function getTitle() {
 	{
 		image && (
 			<Image
-				class="shadow-accent mx-auto mb-2 h-20 w-20 rounded-full group-hover:shadow-lg sm:h-30 sm:w-30"
+				class="shadow-accent mx-auto mb-2 h-20 w-20 rounded-full transition-shadow duration-100 group-hover:shadow-lg sm:h-30 sm:w-30"
 				alt={await getTitle()}
 				src={image}
 			/>
