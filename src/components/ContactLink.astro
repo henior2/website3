@@ -7,9 +7,10 @@ interface Props {
 	icon?: string
 	image?: ImageMetadata
 	title?: string
+	textWrap?: true
 }
 
-const { href, icon, image, title }: Props = Astro.props
+const { href, icon, image, title, textWrap }: Props = Astro.props
 
 async function getTitle() {
 	if (title) {
@@ -45,5 +46,5 @@ async function getTitle() {
 			/>
 		)
 	}
-	<span><slot /></span>
+	<span class={textWrap && 'text-wrap inline-block w-20 sm:w-30'}><slot /></span>
 </a>

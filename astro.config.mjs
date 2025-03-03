@@ -24,6 +24,10 @@ export default defineConfig({
 			},
 			name: 'henior',
 			short_name: 'henior',
+			manifest: {
+				display_override: ['browser'],
+				start_url: '/',
+			}
 		}),
 	],
 })
