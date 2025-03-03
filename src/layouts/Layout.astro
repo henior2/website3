@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css'
+
+import HeroImage from '../assets/hero.png'
+
+const url = 'https://henior.dev'
 ---
 
 <!doctype html>
@@ -9,6 +13,13 @@ import '../styles/global.css'
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<title>henior</title>
+		<meta property="og:title" content="henior.dev" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={url + '/'} />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="henior" />
+		<meta property="og:image" content={url + HeroImage.src} />
+		<meta name="twitter:image" content={url + HeroImage.src} />
 	</head>
 	<body
 		class="dark:bg-background-900 dark:text-text-50 text-background-950 bg-text-50 selection:bg-secondary dark:selection:bg-accent font-sans"
