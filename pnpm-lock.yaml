@@ -36,9 +36,9 @@ importers:
         specifier: ^4.0.9
         version: 4.0.9
     devDependencies:
-      '@iconify-json/bi':
-        specifier: ^1.2.2
-        version: 1.2.2
+      '@iconify-json/simple-icons':
+        specifier: ^1.2.27
+        version: 1.2.27
       prettier:
         specifier: 3.5.2
         version: 3.5.2
