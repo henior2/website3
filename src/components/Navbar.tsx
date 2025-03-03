@@ -1,16 +1,14 @@
-import { useEffect, useRef, useState } from 'preact/hooks'
+import { useEffect, useState } from 'preact/hooks'
 
 // warning: this is probably the worst Preact code you'll ever see in your life
 
 function Navbar(props: any) {
-	const root = document.querySelector(':root')!
 
 	const [collapsed, setCollapsed] = useState(true)
 	const [themeLight, setThemeLight] = useState(false)
 
 	const toggleTheme = () => {
-		root.classList.toggle('dark')
-		// root.current.classList.add('')
+		document.documentElement.classList.toggle('dark')
 
 		localStorage.setItem('theme', !themeLight ? 'light' : 'dark')
 
@@ -31,7 +29,7 @@ function Navbar(props: any) {
 			localStorage.setItem('theme', browserTheme)
 		}
 
-		if (browserTheme == 'light') {
+		if (browserTheme === 'light') {
 			setThemeLight(true)
 		}
 	}, [])
