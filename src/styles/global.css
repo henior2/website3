@@ -26,4 +26,10 @@
 	.custom-section {
 		@apply mx-auto mb-20 w-full p-2 lg:w-[80ch];
 	}
+	.custom-h2 {
+		@apply mb-2 scroll-mt-20 font-mono text-5xl font-bold;
+	}
+	.custom-ins {
+		@apply dark:text-secondary text-accent;
+	}
 }
