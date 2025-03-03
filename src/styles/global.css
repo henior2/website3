@@ -23,6 +23,9 @@
 	.custom-w-short {
 		width: min(25rem, 100%);
 	}
+	.custom-contacts-container {
+		@apply flex w-full max-w-[400px] flex-wrap justify-center gap-6 sm:w-[80%] sm:max-w-[600px];
+	}
 	.custom-section {
 		@apply mx-auto mb-20 w-full p-2 lg:w-[80ch];
 	}
