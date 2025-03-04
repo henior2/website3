@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'preact/hooks'
 
-// warning: this is probably the worst Preact code you'll ever see in your life
+// warning: this is probably the worst React code you'll ever see in your life
 
 function Navbar(props: any) {
 
@@ -20,10 +20,6 @@ function Navbar(props: any) {
 
 		// dark mode looks better, light mode was added just for accessibility
 		const browserTheme = savedTheme || 'dark'
-
-		// let browserTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-		// 	? 'dark'
-		// 	: 'light'
 
 		if (!savedTheme) {
 			localStorage.setItem('theme', browserTheme)

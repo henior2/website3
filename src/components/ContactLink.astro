@@ -31,7 +31,7 @@ async function getTitle() {
 	{
 		icon && (
 			<Icon
-				class={'mx-auto mb-2 h-20 w-20 sm:h-30 sm:w-30' + (icon!.startsWith('simple-icons:') ? ' p-2.5' : '')}
+				class={'mx-auto mb-2 size-20 md:size-30' + (icon!.startsWith('simple-icons:') ? ' p-2.5' : '')}
 				title={await getTitle()}
 				name={icon}
 			/>
@@ -40,11 +40,11 @@ async function getTitle() {
 	{
 		image && (
 			<Image
-				class="shadow-accent mx-auto mb-2 h-20 w-20 rounded-full transition-shadow duration-100 group-hover:shadow-lg sm:h-30 sm:w-30"
+				class="shadow-accent mx-auto mb-2 size-20 rounded-full transition-shadow duration-100 group-hover:shadow-lg md:size-30"
 				alt={await getTitle()}
 				src={image}
 			/>
 		)
 	}
-	<span class={textWrap && 'text-wrap inline-block w-20 sm:w-30'}><slot /></span>
+	<span class={textWrap && 'text-wrap inline-block w-20 md:w-30'}><slot /></span>
 </a>

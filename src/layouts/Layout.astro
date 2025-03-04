@@ -27,39 +27,6 @@ const url = 'https://henior.dev'
 	>
 		<slot />
 
-		{
-			// document.addEventListener('DOMContentLoaded', () => {
-			// 	const root = document.querySelector(':root')!
-			// 	function toggleTheme(updateSaved = false) {
-			// 		root.classList.toggle('dark')
-			// 		if (updateSaved) {
-			// 			localStorage.setItem(
-			// 				'theme',
-			// 				root.classList.contains('dark') ? 'dark' : 'light'
-			// 			)
-			// 		}
-			// 	}
-			// 	let browserTheme = 'dark'
-			// 	// let browserTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-			// 	// 	? 'dark'
-			// 	// 	: 'light'
-			// 	const savedTheme = localStorage.getItem('theme')
-			// 	if (!savedTheme) {
-			// 		localStorage.setItem('theme', browserTheme)
-			// 	} else {
-			// 		browserTheme = savedTheme
-			// 	}
-			// 	if (browserTheme == 'dark') {
-			// 		toggleTheme()
-			// 	}
-			// 	[...document.getElementsByClassName('toggle-theme')].forEach((el) => {
-			// 		el.addEventListener('click', () => {
-			// 			toggleTheme(true)
-			// 		})
-			// 	})
-			// }
-		}
-
 		<script is:inline>
 			if (localStorage.getItem('theme') == 'light') {
 				document.documentElement.classList.remove('dark')
