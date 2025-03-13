@@ -3,7 +3,6 @@ import { useEffect, useState } from 'preact/hooks'
 // warning: this is probably the worst React code you'll ever see in your life
 
 function Navbar(props: any) {
-
 	const [collapsed, setCollapsed] = useState(true)
 	const [themeLight, setThemeLight] = useState(false)
 
