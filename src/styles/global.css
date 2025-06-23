@@ -2,34 +2,34 @@
 @import 'tailwindcss';
 
 @theme {
-	--color-text-50: oklch(94.3% 0.029 17.67);
-	--color-text-100: oklch(90.3% 0.029 17.67);
-	--color-background-900: oklch(14.6% 0.021 19.87);
-	--color-background-950: oklch(12.6% 0.021 19.87);
-	--color-primary: oklch(49.44% 0.182 27.11);
-	--color-secondary: oklch(68.65% 0.009 17.39);
-	--color-accent: oklch(40.65% 0.149 27);
+  --color-text-50: oklch(94.3% 0.029 17.67);
+  --color-text-100: oklch(90.3% 0.029 17.67);
+  --color-background-900: oklch(14.6% 0.021 19.87);
+  --color-background-950: oklch(12.6% 0.021 19.87);
+  --color-primary: oklch(49.44% 0.182 27.11);
+  --color-secondary: oklch(68.65% 0.009 17.39);
+  --color-accent: oklch(40.65% 0.149 27);
 
-	--font-sans: 'Inter', sans-serif;
-	--font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @layer components {
-	.custom-responsive {
-		@apply w-full lg:w-250 xl:w-300;
-	}
-	.custom-contacts-container {
-		@apply flex w-full max-w-[400px] flex-wrap justify-center gap-6 md:w-[80%] md:max-w-[600px];
-	}
-	.custom-section {
-		@apply mx-auto mb-20 w-full p-2 lg:w-[80ch];
-	}
-	.custom-h2 {
-		@apply mb-2 scroll-mt-20 font-mono text-5xl font-bold;
-	}
-	.custom-ins {
-		@apply dark:text-secondary text-accent;
-	}
+  .custom-responsive {
+    @apply w-full lg:w-250 xl:w-300;
+  }
+  .custom-contacts-container {
+    @apply flex w-full max-w-[400px] flex-wrap justify-center gap-6 md:w-[80%] md:max-w-[600px];
+  }
+  .custom-section {
+    @apply mx-auto mb-20 w-full p-2 lg:w-[80ch];
+  }
+  .custom-h2 {
+    @apply mb-2 scroll-mt-20 font-mono text-5xl font-bold;
+  }
+  .custom-ins {
+    @apply dark:text-secondary text-accent;
+  }
 }

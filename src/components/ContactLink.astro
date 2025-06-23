@@ -3,48 +3,48 @@ import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 
 interface Props {
-	href: string
-	icon?: string
-	image?: ImageMetadata
-	title?: string
-	textWrap?: true
+  href: string
+  icon?: string
+  image?: ImageMetadata
+  title?: string
+  textWrap?: true
 }
 
 const { href, icon, image, title, textWrap }: Props = Astro.props
 
 async function getTitle() {
-	if (title) {
-		return title
-	}
-	if (Astro.slots.has('default')) {
-		return (await Astro.slots.render('default')).toString()
-	}
-	return ''
+  if (title) {
+    return title
+  }
+  if (Astro.slots.has('default')) {
+    return (await Astro.slots.render('default')).toString()
+  }
+  return ''
 }
 ---
 
 <a
-	class="hover:text-accent group transition-color dark:hover:selection:text-secondary dark:selection:text-text-50 text-center duration-100"
-	rel="noreferrer"
-	href={href}
+  class="hover:text-accent group transition-color dark:hover:selection:text-secondary dark:selection:text-text-50 text-center duration-100"
+  rel="noreferrer"
+  href={href}
 >
-	{
-		icon && (
-			<Icon
-				class={'mx-auto mb-2 size-20 md:size-30' + (icon!.startsWith('simple-icons:') ? ' p-2.5' : '')}
-				title={await getTitle()}
-				name={icon}
-			/>
-		)
-	}
-	{
-		image && (
-			<Image
-				class="shadow-accent mx-auto mb-2 size-20 rounded-full transition-shadow duration-100 group-hover:shadow-lg md:size-30"
-				alt={await getTitle()}
-				src={image}
-			/>
-		)
-	}
-	<span class={textWrap && 'text-wrap inline-block w-20 md:w-30'}><slot /></span>
+  {
+    icon && (
+      <Icon
+        class={'mx-auto mb-2 size-20 md:size-30' + (icon!.startsWith('simple-icons:') ? ' p-2.5' : '')}
+        title={await getTitle()}
+        name={icon}
+      />
+    )
+  }
+  {
+    image && (
+      <Image
+        class="shadow-accent mx-auto mb-2 size-20 rounded-full transition-shadow duration-100 group-hover:shadow-lg md:size-30"
+        alt={await getTitle()}
+        src={image}
+      />
+    )
+  }
+  <span class={textWrap && 'text-wrap inline-block w-20 md:w-30'}><slot /></span>
 </a>

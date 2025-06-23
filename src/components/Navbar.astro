@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<nav class="fixed top-0 w-full">
+  <div class="dark:bg-background-900 bg-text-50 custom-responsive mx-auto flex items-end gap-6 p-4 font-mono text-xl">
+    <a class="me-4 text-4xl font-bold" href="/#"> henior </a>
+    <div
+      class="dark:bg-background-900 bg-text-50 time invisible absolute top-full left-0 -z-10 flex w-full flex-col items-center gap-6 pb-6 md:visible md:relative md:top-auto md:z-0 md:translate-0 md:flex-row md:items-end md:pb-0 md:transition-none"
+      id="navbarList"
+    >
+      <a class="hover:text-accent dark:hover:text-secondary" href="/#about"> About me </a>
+      <a class="hover:text-accent dark:hover:text-secondary" href="/#contact"> Contact </a>
+      <a class="hover:text-accent dark:hover:text-secondary" href="/#friends"> Friends </a>
+    </div>
+    <div class="grow"></div>
+    <button class="hover:text-primary cursor-pointer self-center text-2xl" type="button" id="themeToggle">
+      <Icon name="mdi:weather-night" id="themeIconOn" class="hidden" />
+      <Icon name="mdi:white-balance-sunny" id="themeIconOff" />
+    </button>
+    <button class="hover:text-primary cursor-pointer self-center text-2xl md:hidden" type="button" id="navbarToggle">
+      <Icon name="mdi:menu" id="navbarIconOn" />
+      <Icon name="mdi:close" id="navbarIconOff" class="hidden" />
+    </button>
+  </div>
+</nav>
+
+<script is:inline>
+  if (localStorage.getItem('theme') == 'light') {
+    document.documentElement.classList.remove('dark')
+  }
+</script>
+
+<script>
+  const navbarList = document.getElementById('navbarList')!
+  const themeToggle = document.getElementById('themeToggle')!
+  const navbarToggle = document.getElementById('navbarToggle')!
+  const themeIconOn = document.getElementById('themeIconOn')!
+  const themeIconOff = document.getElementById('themeIconOff')!
+  const navbarIconOn = document.getElementById('navbarIconOn')!
+  const navbarIconOff = document.getElementById('navbarIconOff')!
+
+  // dark mode looks better, light mode was added just for accessibility
+
+  let themeLight = false
+
+  if (localStorage.getItem('theme') == 'light') {
+    themeLight = true
+
+    themeIconOn.classList.toggle('hidden')
+    themeIconOff.classList.toggle('hidden')
+  }
+
+  themeToggle.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark')
+
+    themeLight = !themeLight
+
+    localStorage.setItem('theme', themeLight ? 'light' : 'dark')
+
+    themeIconOn.classList.toggle('hidden')
+    themeIconOff.classList.toggle('hidden')
+  })
+
+  navbarToggle.addEventListener('click', () => {
+    navbarList.classList.toggle('invisible')
+    navbarIconOn.classList.toggle('hidden')
+    navbarIconOff.classList.toggle('hidden')
+  })
+</script>

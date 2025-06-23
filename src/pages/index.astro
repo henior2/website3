@@ -3,7 +3,7 @@ import { Image } from 'astro:assets'
 import { Icon } from 'astro-icon/components'
 
 import Layout from '../layouts/Layout.astro'
-import Navbar from '../components/Navbar.tsx'
+import Navbar from '../components/Navbar.astro'
 import ContactLink from '../components/ContactLink.astro'
 
 import HeroImage from '../assets/hero.png'
@@ -18,97 +18,92 @@ import TeleAvatar from '../assets/avatar/tele.png'
 ---
 
 <Layout>
-	<Navbar client:only>
-		<Icon name="mdi:weather-night" slot="themeIconOn" />
-		<Icon name="mdi:white-balance-sunny" slot="themeIconOff" />
-		<Icon name="mdi:menu" slot="navbarIconOn" />
-		<Icon name="mdi:close" slot="navbarIconOff" />
-	</Navbar>
+  <Navbar />
 
-	<main class="custom-responsive mx-auto mt-20 scroll-auto px-2 md:px-6 lg:px-0">
-		<section class="mb-32 flex flex-col items-center justify-center gap-10 py-8 md:flex-row">
-			<Image class="left-0 h-50 w-50 rounded-full lg:h-75 lg:w-75" src={HeroImage} alt="wiadro" loading="eager" />
-			<div class="flex w-full max-w-100 flex-col justify-center gap-2 text-center md:text-left">
-				<h1 class="font-mono text-6xl font-bold">Hi</h1>
-				<p class="text-xl">
-					I'm <strong>henior</strong>, an aspiring <i class="custom-ins">(almost)</i> dev doing various things
-					<i class="custom-ins">(if any)</i>.
-				</p>
-				<a class="text-primary dark:selection:text-text-50 font-bold" href="#contact">Contact</a>
-			</div>
-		</section>
-		<section class="custom-section">
-			<h2 id="about" class="custom-h2">About me</h2>
-			<p class="mb-2">
-				I've been doing various coding stuff since I was like 10. Right now I'm focusing on webdev
-				<i class="custom-ins">(JS/TS, Astro, UI frameworks, Tailwind etc)</i>, but I'm also pretty solid in Python, Go
-				and C++ <i class="custom-ins">(trying to read through Bjarne's book)</i>.
-			</p>
-			<p class="mb-2">I also have some experience with Linux and hosting stuff with Docker.</p>
-			<p class="mb-2">Love yerba&#129481;, drink kefir, listen to old Polish rap and have autism.</p>
-			{
-				// <p class="custom-ins mt-6">Might start a blog soon but idk</p>
-			}
-		</section>
-		<section class="custom-section">
-			<h2 id="contact" class="custom-h2">Contact</h2>
-			<p>Some ways you can contact or stalk me:</p>
-			<div class="flex justify-center">
-				<div class="custom-contacts-container mt-5">
-					<ContactLink
-						icon="simple-icons:signal"
-						href="https://signal.me/#eu/Hrv_FjFwOL8Rjk8VUkf-f-GCyCA0SPd0voN6JOh_vAvKGvHMmgtPh6efKVTqAGi6"
-					>
-						Signal
-					</ContactLink>
-					<ContactLink icon="simple-icons:discord" href="https://discord.com/users/1096147883939614820">
-						Discord
-					</ContactLink>
-					<ContactLink icon="simple-icons:matrix" href="https://matrix.to/#/@henior:pol.social">Matrix</ContactLink>
-					<ContactLink icon="mdi:email" href="mailto:henior@henior.dev">Email</ContactLink>
-					<ContactLink icon="mdi:github" href="https://github.com/henior2">GitHub</ContactLink>
-					<ContactLink icon="simple-icons:x" title="X" href="https://x.com/_henior">Shitter</ContactLink>
-					<ContactLink icon="simple-icons:bluesky" href="https://bsky.app/profile/henior.dev">Bluesky</ContactLink>
-					<ContactLink icon="mdi:spotify" textWrap title="stats.fm" href="https://stats.fm/henior">
-						Spotify stats
-					</ContactLink>
-				</div>
-			</div>
-		</section>
-		<section class="custom-section mb-0">
-			<h2 id="friends" class="custom-h2">Friends' websites</h2>
-			<p>Some cool websites of my friends:</p>
-			<div class="flex justify-center">
-				<div class="custom-contacts-container mt-5">
-					<ContactLink image={KetokAvatar} href="https://ketok.xyz">Ketok</ContactLink>
-					<ContactLink image={FiraAvatar} href="https://lesbian.sex.pl">Fira</ContactLink>
-					<ContactLink image={NiszogenAvatar} href="https://niszogen.com/">Niszogen</ContactLink>
-					<ContactLink image={SioodmyAvatar} href="https://sioodmy.dev/">sioodmy</ContactLink>
-					<ContactLink image={TeleAvatar} href="https://aey.ovh/">tele</ContactLink>
-					<ContactLink image={BozgiAvatar} href="https://bozgi.space/">bozgi</ContactLink>
-					<ContactLink image={OskarekAvatar} href="https://sokzkomucha.xyz/">sokzkomucha</ContactLink>
-				</div>
-			</div>
-		</section>
-	</main>
-	<footer class="bg-text-100 dark:bg-background-950 mt-4 py-15 text-center">
-		<p>
-			&copy; henior {new Date().getFullYear()}
-		</p>
-		<p class="text-sm">
-			This site is open source on
-			<a class="text-primary dark:selection:text-text-50 font-bold" href="https://github.com/henior2/website3">
-				GitHub</a
-			>.
-		</p>
-		{
-			// 	<p class="text-sm">
-			// 		This site uses{' '}
-			// 		<a class="text-primary dark:selection:text-text-50 font-bold" href="https://umami.is/">
-			// 			Umami
-			// 		</a>{' '}
-			// 		for analytics.
-			// 	</p>
-		}
-	</footer>
+  <main class="custom-responsive mx-auto mt-20 scroll-auto px-2 md:px-6 lg:px-0">
+    <section class="mb-32 flex flex-col items-center justify-center gap-10 py-8 md:flex-row">
+      <Image class="left-0 h-50 w-50 rounded-full lg:h-75 lg:w-75" src={HeroImage} alt="wiadro" loading="eager" />
+      <div class="flex w-full max-w-100 flex-col justify-center gap-2 text-center md:text-left">
+        <h1 class="font-mono text-6xl font-bold">Hi</h1>
+        <p class="text-xl">
+          I'm <strong>henior</strong>, an aspiring <i class="custom-ins">(almost)</i> dev doing various things
+          <i class="custom-ins">(if any)</i>.
+        </p>
+        <a class="text-primary dark:selection:text-text-50 font-bold" href="#contact">Contact</a>
+      </div>
+    </section>
+    <section class="custom-section">
+      <h2 id="about" class="custom-h2">About me</h2>
+      <p class="mb-2">
+        I've been doing various coding stuff since I was like 10. Right now I'm focusing on webdev
+        <i class="custom-ins">(JS/TS, Astro, UI frameworks, Tailwind etc)</i>, but I'm also pretty solid in Python, Go
+        and C++ <i class="custom-ins">(trying to read through Bjarne's book)</i>.
+      </p>
+      <p class="mb-2">I also have some experience with Linux and hosting stuff with Docker.</p>
+      <p class="mb-2">Love yerba&#129481;, drink kefir, listen to old Polish rap and have autism.</p>
+      {
+        // <p class="custom-ins mt-6">Might start a blog soon but idk</p>
+      }
+    </section>
+    <section class="custom-section">
+      <h2 id="contact" class="custom-h2">Contact</h2>
+      <p>Some ways you can contact or stalk me:</p>
+      <div class="flex justify-center">
+        <div class="custom-contacts-container mt-5">
+          <ContactLink
+            icon="simple-icons:signal"
+            href="https://signal.me/#eu/Hrv_FjFwOL8Rjk8VUkf-f-GCyCA0SPd0voN6JOh_vAvKGvHMmgtPh6efKVTqAGi6"
+          >
+            Signal
+          </ContactLink>
+          <ContactLink icon="simple-icons:discord" href="https://discord.com/users/1096147883939614820">
+            Discord
+          </ContactLink>
+          <ContactLink icon="simple-icons:matrix" href="https://matrix.to/#/@henior:pol.social">Matrix</ContactLink>
+          <ContactLink icon="mdi:email" href="mailto:henior@henior.dev">Email</ContactLink>
+          <ContactLink icon="mdi:github" href="https://github.com/henior2">GitHub</ContactLink>
+          <ContactLink icon="simple-icons:x" title="X" href="https://x.com/_henior">Shitter</ContactLink>
+          <ContactLink icon="simple-icons:bluesky" href="https://bsky.app/profile/henior.dev">Bluesky</ContactLink>
+          <ContactLink icon="mdi:spotify" textWrap title="stats.fm" href="https://stats.fm/henior">
+            Spotify stats
+          </ContactLink>
+        </div>
+      </div>
+    </section>
+    <section class="custom-section mb-0">
+      <h2 id="friends" class="custom-h2">Friends' websites</h2>
+      <p>Some cool websites of my friends:</p>
+      <div class="flex justify-center">
+        <div class="custom-contacts-container mt-5">
+          <ContactLink image={KetokAvatar} href="https://ketok.xyz">Ketok</ContactLink>
+          <ContactLink image={FiraAvatar} href="https://lesbian.sex.pl">Fira</ContactLink>
+          <ContactLink image={NiszogenAvatar} href="https://niszogen.com/">Niszogen</ContactLink>
+          <ContactLink image={SioodmyAvatar} href="https://sioodmy.dev/">sioodmy</ContactLink>
+          <ContactLink image={TeleAvatar} href="https://aey.ovh/">tele</ContactLink>
+          <ContactLink image={BozgiAvatar} href="https://bozgi.space/">bozgi</ContactLink>
+          <ContactLink image={OskarekAvatar} href="https://sokzkomucha.xyz/">sokzkomucha</ContactLink>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-text-100 dark:bg-background-950 mt-4 py-15 text-center">
+    <p>
+      &copy; henior {new Date().getFullYear()}
+    </p>
+    <p class="text-sm">
+      This site is open source on
+      <a class="text-primary dark:selection:text-text-50 font-bold" href="https://github.com/henior2/website3">
+        GitHub</a
+      >.
+    </p>
+    {
+      // 	<p class="text-sm">
+      // 		This site uses{' '}
+      // 		<a class="text-primary dark:selection:text-text-50 font-bold" href="https://umami.is/">
+      // 			Umami
+      // 		</a>{' '}
+      // 		for analytics.
+      // 	</p>
+    }
+  </footer>
 </Layout>
