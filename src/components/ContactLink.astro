@@ -8,9 +8,10 @@ interface Props {
   image?: ImageMetadata
   title?: string
   textWrap?: true
+  linkRel?: string
 }
 
-const { href, icon, image, title, textWrap }: Props = Astro.props
+const { href, icon, image, title, textWrap, linkRel }: Props = Astro.props
 
 async function getTitle() {
   if (title) {
@@ -25,7 +26,7 @@ async function getTitle() {
 
 <a
   class="hover:text-accent group transition-color dark:hover:selection:text-secondary dark:selection:text-text-50 text-center duration-100"
-  rel="noreferrer"
+  rel={linkRel || 'noreferrer'}
   href={href}
 >
   {
